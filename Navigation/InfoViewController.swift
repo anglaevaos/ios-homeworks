@@ -1,29 +1,45 @@
-//
-//  InfoViewController.swift
-//  Navigation
-//
-//  Created by Oksana Anglaeva on 11.08.2024.
-//
+
 
 import UIKit
 
 class InfoViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .blue
+        
+let alertButton = UIButton(type: .system)
+                  alertButton.setTitle("Show Alert", for: .normal)
+                  alertButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
 
-        // Do any additional setup after loading the view.
-    }
-    
+                  alertButton.translatesAutoresizingMaskIntoConstraints = false
+                  view.addSubview(alertButton)
 
-    /*
-    // MARK: - Navigation
+                  NSLayoutConstraint.activate([
+                      alertButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                      alertButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+                  ])
+              }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+            @objc func showAlert() {
+                  
+                  let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
+                  let firstAction = UIAlertAction(title: "First action", style: .default) { _ in
+                      print("First action selected")
+                  }
 
+                  
+                  let secondAction = UIAlertAction(title: "Second action", style: .default) { _ in
+                      print("Second action selected")
+                  }
+
+                 
+                  alertController.addAction(firstAction)
+                  alertController.addAction(secondAction)
+
+                  
+                  present(alertController, animated: true, completion: nil)
+              }
 }
+
