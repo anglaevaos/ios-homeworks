@@ -15,6 +15,8 @@
 		8B811B972C691D3300F6E398 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8B811B962C691D3300F6E398 /* .gitignore */; };
 		8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B982C6921D700F6E398 /* FeedViewController.swift */; };
 		8B811B9B2C6921F100F6E398 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */; };
+		8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9C2C69255F00F6E398 /* PostViewController.swift */; };
+		8B811B9F2C69258E00F6E398 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9E2C69258E00F6E398 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		8B811B962C691D3300F6E398 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8B811B982C6921D700F6E398 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8B811B9C2C69255F00F6E398 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		8B811B9E2C69258E00F6E398 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				8B811B962C691D3300F6E398 /* .gitignore */,
 				8B811B982C6921D700F6E398 /* FeedViewController.swift */,
 				8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */,
+				8B811B9C2C69255F00F6E398 /* PostViewController.swift */,
+				8B811B9E2C69258E00F6E398 /* InfoViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */,
 				8B811B872C691AAA00F6E398 /* ViewController.swift in Sources */,
 				8B811B832C691AAA00F6E398 /* AppDelegate.swift in Sources */,
+				8B811B9F2C69258E00F6E398 /* InfoViewController.swift in Sources */,
 				8B811B9B2C6921F100F6E398 /* ProfileViewController.swift in Sources */,
 				8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */,
 				8B811B852C691AAA00F6E398 /* SceneDelegate.swift in Sources */,
