@@ -12,13 +12,19 @@ class FeedViewController: UIViewController {
     
     private let button1: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("First post", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("First button", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 4
         return button
     }()
     
     private let button2: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Second post", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Second button", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 4
         return button
     }()
     
@@ -41,7 +47,8 @@ class FeedViewController: UIViewController {
        
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 200)
                 ])
 
         button1.addTarget(self, action: #selector(openPost), for: .touchUpInside)
