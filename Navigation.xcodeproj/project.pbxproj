@@ -17,6 +17,7 @@
 		8B811B9B2C6921F100F6E398 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */; };
 		8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9C2C69255F00F6E398 /* PostViewController.swift */; };
 		8B811B9F2C69258E00F6E398 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9E2C69258E00F6E398 /* InfoViewController.swift */; };
+		8BCB9ADA2C6A8DDB0021F2E4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8B811B9C2C69255F00F6E398 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8B811B9E2C69258E00F6E398 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		8B811B812C691AAA00F6E398 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				8BCB9AD82C6A8DAD0021F2E4 /* Profile */,
 				8B811B822C691AAA00F6E398 /* AppDelegate.swift */,
 				8B811B842C691AAA00F6E398 /* SceneDelegate.swift */,
 				8B811B862C691AAA00F6E398 /* ViewController.swift */,
@@ -77,6 +80,14 @@
 				8B811B9E2C69258E00F6E398 /* InfoViewController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		8BCB9AD82C6A8DAD0021F2E4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 				8B811B9B2C6921F100F6E398 /* ProfileViewController.swift in Sources */,
 				8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */,
 				8B811B852C691AAA00F6E398 /* SceneDelegate.swift in Sources */,
+				8BCB9ADA2C6A8DDB0021F2E4 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
