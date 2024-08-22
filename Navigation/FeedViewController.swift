@@ -28,8 +28,8 @@ class FeedViewController: UIViewController {
         return button
     }()
     
-   
-        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,19 +38,19 @@ class FeedViewController: UIViewController {
         
         setupUI()
     }
-        
+    
     private func setupUI() {
         view.addSubview(stackView)
         
         stackView.addArrangedSubview(button1)
         stackView.addArrangedSubview(button2)
-       
+        
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.widthAnchor.constraint(equalToConstant: 200)
-                ])
-
+        ])
+        
         button1.addTarget(self, action: #selector(openPost), for: .touchUpInside)
         button2.addTarget(self, action: #selector(openPost), for: .touchUpInside)
     }

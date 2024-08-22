@@ -7,7 +7,7 @@ struct Post {
 }
 
 class PostViewController: UIViewController {
-
+    
     var post: Post
     init(post: Post) {
         self.post = post
