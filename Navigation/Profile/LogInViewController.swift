@@ -81,7 +81,7 @@ class LogInViewController: UIViewController {
     }()
     
     
-    let logInButton: UIButton = {
+    private let logInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.layer.masksToBounds = true
@@ -92,6 +92,7 @@ class LogInViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .disabled)//уточнить
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .highlighted)//уточнить
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .selected)//уточнить
+        button.addTarget(self, action: #selector(buttonTappedToProfile), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -119,29 +120,14 @@ class LogInViewController: UIViewController {
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        
-        // Установка ограничений для scrollView
-        NSLayoutConstraint.activate([
-//            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//        
-//        // Установка ограничений для contentView
-//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-//            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-//            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-//            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
     }
     
     
     private func setupUI() {
-        view.addSubview(logoImageView)
-        view.addSubview(logInButton)
-        view.addSubview(emailPhoneTextField)
-        view.addSubview(passwordTextField)
+        contentView.addSubview(logoImageView)
+        contentView.addSubview(logInButton)
+        contentView.addSubview(emailPhoneTextField)
+        contentView.addSubview(passwordTextField)
     }
     
     
@@ -153,7 +139,7 @@ class LogInViewController: UIViewController {
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
             
             emailPhoneTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailPhoneTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
+            emailPhoneTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120.5),
             emailPhoneTextField.heightAnchor.constraint(equalToConstant: 50),
             emailPhoneTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),//отступ слева 16
             emailPhoneTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
@@ -177,16 +163,19 @@ class LogInViewController: UIViewController {
         
         // Установка ограничений для contentView
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 1000),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
     
-    @objc private func buttonTapped() {
-        emailPhoneTextField.text = "Email or phone"
-    }
+    
+    @objc private func buttonTappedToProfile() {
+           let profileVC = ProfileViewController()
+           navigationController?.pushViewController(profileVC, animated: true)
+       }
+
     
 }
 
