@@ -3,19 +3,6 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-        addTarget()
-        addConstraint()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-        addTarget()
-        addConstraint()
-    }
     
     private var statusText: String = ""
     private let defaultStatusText: String = "Enter your status here"
@@ -31,12 +18,12 @@ class ProfileHeaderView: UIView {
     }()
     
     private let profileImageView: UIImageView = {
+        let customHeightImage = 100
         let imageView = UIImageView()
         imageView.image = UIImage(named: "tobi")
-        imageView.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = CGFloat(customHeightImage/2)
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = (UIColor(white: 242.0/255.0, alpha: 1.0)).cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +73,20 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+        addTarget()
+        addConstraint()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+        addTarget()
+        addConstraint()
+    }
+    
     
     private func setupView() {
         self.backgroundColor = UIColor.lightGray
@@ -102,14 +103,13 @@ class ProfileHeaderView: UIView {
     }
     
     
-    
     private func addConstraint() {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor), // расположение в центре
             titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27), // закрепление сверху
             titleLabel.heightAnchor.constraint(equalToConstant: 27), // отступ
             
-            
+            //           profileImageView.widthAnchor.constraint(equalToConstant: CGFloat(customHeightImage),
             profileImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),// расположение на экране - слева
             profileImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16), //отступ сверху от safeArea
             profileImageView.widthAnchor.constraint(equalToConstant: 100), //ширина
@@ -145,12 +145,10 @@ class ProfileHeaderView: UIView {
     @objc func statusTextChanged(_ textField: UITextField){
         statusText = textField.text ?? ""
         print("Status set to statusTextChanged: \(self.statusText)")
-        
     }
     
     
     @objc func buttonPressed() {
-        //            print("Status set to: \(statusText)")
         if self.statusText == "" {
             self.textView.text = self.defaultStatusText
         } else {
@@ -159,9 +157,6 @@ class ProfileHeaderView: UIView {
         
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
 }
 
 
