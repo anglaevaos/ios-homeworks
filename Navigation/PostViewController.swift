@@ -24,10 +24,10 @@ class PostViewController: UIViewController {
         
         view.backgroundColor = .white
         title = post.title
-
         
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Info",
             style: .plain,
             target: self,
@@ -41,9 +41,9 @@ class PostViewController: UIViewController {
         infoViewController.modalPresentationStyle = .formSheet
         present(infoViewController, animated: true)
         
-//        navigationController?.pushViewController(infoViewController, animated: true)
+        
         
     }
-
+    
 }
 
