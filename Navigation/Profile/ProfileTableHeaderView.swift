@@ -1,13 +1,13 @@
 //
-//  ProfileTableHederView.swift
+//  ProfileTableHeaderView.swift
 //  Navigation
 //
-//  Created by Oksana Anglaeva on 26.08.2024.
+//  Created by Oksana Anglaeva on 27.08.2024.
 //
 
 import UIKit
 
-class ProfileTableHederView: UIView {
+class ProfileTableHeaderView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
