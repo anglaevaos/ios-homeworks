@@ -1,9 +1,3 @@
-//
-//  VKPost.swift
-//  Navigation
-//
-//  Created by Oksana Anglaeva on 26.08.2024.
-//
 
 import UIKit
 

@@ -1,58 +1,62 @@
-
-
 import UIKit
 
-
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let profileHeaderView = ProfileHeaderView()
+    let tableView = UITableView()
     
-    private let profileButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Profile button", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.backgroundColor = .systemGray3
-        button.setTitleColor(.white, for: .normal)
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.cornerRadius = 4
-        button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    
+    let images: [UIImage] = [
+        UIImage(named: "scream") ?? UIImage(),
+        UIImage(named: "scream2") ?? UIImage(),
+        UIImage(named: "scream3") ?? UIImage(),
+        UIImage(named: "scream4") ?? UIImage(),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
         title = "Profile"
-        setupHeaderView()
-        addView()
-        addConstraints()
+        view.backgroundColor = .white
+        
+        setupTableView()
     }
     
-    private func setupHeaderView() {
-        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func addView(){
-        view.addSubview(profileHeaderView)
-        view.addSubview(profileButton)
-    }
-    
-    private func addConstraints(){
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            profileHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
-            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileHeaderView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            profileButton.widthAnchor.constraint(equalToConstant: 100),
-            profileButton.heightAnchor.constraint(equalToConstant: 40),
-            profileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            profileButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
-}
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return images.count // Количество строк = количеству изображений
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.imageView?.image = images[indexPath.row]
+        cell.textLabel?.text = "Movie \(indexPath.row + 1)"
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Обработка выбора ячейки
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Выбрана строка \(indexPath.row + 1)")
+    }
+    
 
+}
