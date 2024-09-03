@@ -1,35 +1,21 @@
 import UIKit
 
+
 class PostTableViewCell: UITableViewCell {
     
-   
-    let postImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    let postTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let postDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 2
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let titleVKLabel = UILabel()
+    private let contentLabel = UILabel()
+    private let likesLabel = UILabel()
+    private let viewsLabel = UILabel()
+    private let postImage = UIImageView()
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    override init(style: UITableViewCell.CellStyle,
+                  reuseIdentifier: String?) {
+        
+        super.init(style: style,
+                   reuseIdentifier: reuseIdentifier)
         setupViews()
     }
     
@@ -37,27 +23,69 @@ class PostTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+    
     private func setupViews() {
-        contentView.addSubview(postImageView)
-        contentView.addSubview(postTitleLabel)
-        contentView.addSubview(postDescriptionLabel)
+        let titleVKLabel: UILabel = {
+            let titleVKLabel = UILabel()
+            titleVKLabel.font = .systemFont(ofSize: 20, weight: .bold)
+            titleVKLabel.textColor = .black
+            titleVKLabel.numberOfLines = 2
+            titleVKLabel.textAlignment = .center
+            return titleVKLabel
+        }()
+        
+        
+        var contentLabel: UILabel = {
+            let contentLabel = UILabel()
+            contentLabel.font = .systemFont(ofSize: 14, weight: .regular)
+            contentLabel.textColor = .systemGray
+            contentLabel.numberOfLines = 0
+            contentLabel.textAlignment = .center
+            return contentLabel
+        }()
+        
+        let likesLabel: UILabel = {
+            let likesLabel = UILabel()
+            likesLabel.font = .systemFont(ofSize: 14, weight: .regular)
+            likesLabel.textColor = .black
+            return likesLabel
+        }()
+        
+        let viewsLabel: UILabel = {
+            let viewsLabel = UILabel()
+            viewsLabel.font = .systemFont(ofSize: 14, weight: .regular)
+            viewsLabel.textColor = .black
+            return viewsLabel
+        }()
+        
+        let postImage: UIImageView = {
+            let postImage = UIImageView ()
+            postImage.contentMode = .scaleAspectFit
+            postImage.backgroundColor = .black
+            return postImage
+        }()
+        
+        
+        
+        let stackView = UIStackView(arrangedSubviews: [titleVKLabel, contentLabel, likesLabel, viewsLabel, postImage])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            postImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            postImageView.widthAnchor.constraint(equalToConstant: 60),
-            postImageView.heightAnchor.constraint(equalToConstant: 60),
-            
-            postTitleLabel.leadingAnchor.constraint(equalTo: postImageView.trailingAnchor, constant: 10),
-            postTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            postTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
-            postDescriptionLabel.leadingAnchor.constraint(equalTo: postImageView.trailingAnchor, constant: 10),
-            postDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            postDescriptionLabel.topAnchor.constraint(equalTo: postTitleLabel.bottomAnchor, constant: 5),
-            postDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
     }
     
+    func configure(with post: VKPost) {
+        //            titleVKLabel.text = post.title
+        //            contentLabel.text = post.content
+    }
+    
 }
+
