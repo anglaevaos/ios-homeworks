@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         
         setupView()
@@ -30,6 +29,16 @@ class ProfileViewController: UIViewController {
         tuneTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.indexPathsForSelectedRows?.forEach{ indexPath in
+            tableView.deselectRow(
+                at: indexPath,
+                animated: animated
+            )
+        }
+    }
     
     private func setupView(){
         view.backgroundColor = .systemBackground
@@ -58,26 +67,46 @@ class ProfileViewController: UIViewController {
         let headerView = ProfileHeaderView()
         tableView.setAndLayout(headerView: headerView)
         tableView.estimatedRowHeight = 50
+        tableView.tableFooterView = UIView()
         
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: CellReuseID.base.rawValue)
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        
         
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 }
 
-extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProfileViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let profileHeader = ProfileHeaderView()
+        return section == 0 ? profileHeader : nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return section == 0 ? 250 : 0
+    }
+}
+
+
+
+extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return post.count // кол-во публ
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseID.base.rawValue, for: indexPath) as! PostTableViewCell
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         
-        _ = post[indexPath.row]
-//        cell.configure(with: post) //  метод для настройки ячейки
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         
+        cell.update(post[indexPath.row]) //метод для настройки ячейки
         return cell
     }
     
@@ -85,4 +114,21 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         // Обработка выбора ячейки
         tableView.deselectRow(at: indexPath, animated: true)
     }
-}
+    
+    
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 20 // Высота заголовка
+        }
+        return 0 // Для остальных секций
+    }
+    
+    extension UIView {
+        static var identifier: String {
+            return String(describing: self)
+        }
+    }
+    
+
