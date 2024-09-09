@@ -18,8 +18,9 @@
 		8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9C2C69255F00F6E398 /* PostViewController.swift */; };
 		8B811B9F2C69258E00F6E398 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B811B9E2C69258E00F6E398 /* InfoViewController.swift */; };
 		8BAC3A222C77A5FB00502E12 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC3A212C77A5FB00502E12 /* LogInViewController.swift */; };
-		8BAF712F2C7CEB6200648AEC /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF712E2C7CEB6200648AEC /* ProfileTableHederView.swift */; };
 		8BAF71312C7CF56600648AEC /* VKPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF71302C7CF56600648AEC /* VKPost.swift */; };
+		8BAF71332C7CFFBC00648AEC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF71322C7CFFBC00648AEC /* PostTableViewCell.swift */; };
+		8BAF71372C7E348400648AEC /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF71362C7E348400648AEC /* ProfileTableHeaderView.swift */; };
 		8BCB9ADA2C6A8DDB0021F2E4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +38,9 @@
 		8B811B9C2C69255F00F6E398 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8B811B9E2C69258E00F6E398 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8BAC3A212C77A5FB00502E12 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		8BAF712E2C7CEB6200648AEC /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
 		8BAF71302C7CF56600648AEC /* VKPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPost.swift; sourceTree = "<group>"; };
+		8BAF71322C7CFFBC00648AEC /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		8BAF71362C7E348400648AEC /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +74,6 @@
 		8B811B812C691AAA00F6E398 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				8BCB9AD82C6A8DAD0021F2E4 /* Profile */,
 				8B811B822C691AAA00F6E398 /* AppDelegate.swift */,
 				8B811B842C691AAA00F6E398 /* SceneDelegate.swift */,
 				8B811B862C691AAA00F6E398 /* ViewController.swift */,
@@ -84,6 +85,7 @@
 				8B811B9A2C6921F100F6E398 /* ProfileViewController.swift */,
 				8B811B9C2C69255F00F6E398 /* PostViewController.swift */,
 				8B811B9E2C69258E00F6E398 /* InfoViewController.swift */,
+				8BCB9AD82C6A8DAD0021F2E4 /* Profile */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -93,8 +95,9 @@
 			children = (
 				8BCB9AD92C6A8DDB0021F2E4 /* ProfileHeaderView.swift */,
 				8BAC3A212C77A5FB00502E12 /* LogInViewController.swift */,
-				8BAF712E2C7CEB6200648AEC /* ProfileTableHederView.swift */,
+				8BAF71322C7CFFBC00648AEC /* PostTableViewCell.swift */,
 				8BAF71302C7CF56600648AEC /* VKPost.swift */,
+				8BAF71362C7E348400648AEC /* ProfileTableHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -170,8 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BAF712F2C7CEB6200648AEC /* ProfileTableHederView.swift in Sources */,
 				8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */,
+				8BAF71372C7E348400648AEC /* ProfileTableHeaderView.swift in Sources */,
 				8B811B872C691AAA00F6E398 /* ViewController.swift in Sources */,
 				8BAC3A222C77A5FB00502E12 /* LogInViewController.swift in Sources */,
 				8B811B832C691AAA00F6E398 /* AppDelegate.swift in Sources */,
@@ -181,6 +184,7 @@
 				8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */,
 				8B811B852C691AAA00F6E398 /* SceneDelegate.swift in Sources */,
 				8BCB9ADA2C6A8DDB0021F2E4 /* ProfileHeaderView.swift in Sources */,
+				8BAF71332C7CFFBC00648AEC /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
