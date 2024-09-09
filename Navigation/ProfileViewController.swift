@@ -1,34 +1,57 @@
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let tableView = UITableView()
+class ProfileViewController: UIViewController {
     
     
-    let images: [UIImage] = [
-        UIImage(named: "scream") ?? UIImage(),
-        UIImage(named: "scream2") ?? UIImage(),
-        UIImage(named: "scream3") ?? UIImage(),
-        UIImage(named: "scream4") ?? UIImage(),
-    ]
+    fileprivate let post = VKPost.makePost()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView.init(frame: .zero,style: .grouped)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tableView
+    }()
+    
+    private enum CellReuseID: String {
+        case base = "BaseTableViewCell_ReuseID"
+        case custom = "CustomTableViewCell_ReuseID"
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Profile"
         view.backgroundColor = .white
         
-        setupTableView()
+        setupView()
+        addSubviews()
+        setupConstraints()
+        tuneTableView()
     }
     
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        tableView.indexPathsForSelectedRows?.forEach{ indexPath in
+            tableView.deselectRow(
+                at: indexPath,
+                animated: animated
+            )
+        }
+    }
+    
+    private func setupView(){
+        view.backgroundColor = .systemBackground
+        navigationItem.title = "Profile"
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    private func addSubviews(){
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+    }
+    
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -37,26 +60,75 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ])
     }
     
+    private func tuneTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 50
+        
+        let headerView = ProfileHeaderView()
+        tableView.setAndLayout(headerView: headerView)
+        tableView.estimatedRowHeight = 50
+        tableView.tableFooterView = UIView()
+        
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+}
+
+extension ProfileViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let profileHeader = ProfileHeaderView()
+        return section == 0 ? profileHeader : nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return section == 0 ? 250 : 0
+    }
+}
+
+
+
+extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count // Количество строк = количеству изображений
+        return post.count // кол-во публ
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         
-        cell.imageView?.image = images[indexPath.row]
-        cell.textLabel?.text = "Movie \(indexPath.row + 1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         
+        cell.update(post[indexPath.row]) //метод для настройки ячейки
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Обработка выбора ячейки
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Выбрана строка \(indexPath.row + 1)")
+    }
+    
+    
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 20 // Высота заголовка
+        }
+        return 0 // Для остальных секций
+    }
+    
+    extension UIView {
+        static var identifier: String {
+            return String(describing: self)
+        }
     }
     
 
-}
