@@ -98,7 +98,7 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
     
-    func update(_ post: VKPost) {
+    func setupCell(_ post: VKPost) {
         authorLabel.text = post.author
         labelDescription.text = post.description
         labelLike.text = "Like: \(post.like)"
