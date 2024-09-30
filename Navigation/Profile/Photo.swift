@@ -35,4 +35,6 @@ struct Photo {
         photo.append(Photo(author: "Горы", image: "31"))
         return photo
     }
+        
+
 }

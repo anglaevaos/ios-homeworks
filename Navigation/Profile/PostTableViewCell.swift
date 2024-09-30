@@ -1,7 +1,10 @@
 import UIKit
+import iOSIntPackage
 
 
 class PostTableViewCell: UITableViewCell {
+    
+    let imageProcessor = ImageProcessor()
     
     private let postView: UIView = {
         let view = UIView()
@@ -58,6 +61,7 @@ class PostTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupLayout()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -98,14 +102,24 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
     
+    
+    
     func setupCell(_ post: VKPost) {
         authorLabel.text = post.author
         labelDescription.text = post.description
         labelLike.text = "Like: \(post.like)"
         labelView.text = "Просмотры: \(post.view)"
-        postImage.image = UIImage(named: post.image)
-      
+        
+        
+        if let image = UIImage(named: post.image) {
+            imageProcessor.processImage(sourceImage: image, filter: .noir) { filteredImage in
+                if let filteredImage = filteredImage {
+                postImage.image = filteredImage
+                }
+            }
+            
+        }
+        
     }
     
 }
-
