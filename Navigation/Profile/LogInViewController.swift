@@ -178,8 +178,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     public let userService = CurrentUserService(currentUser: User(userLogin: "Barbara", userFullname: "Barbie", userStatus: "Hi, Ken!", userAvatar: UIImage(named: "19")))
     
     @objc private func buttonTappedToProfile() {
-        var user = userService.getUser(by: emailPhoneTextField.text!)
         
+#if DEBUG
+        var user = TestUserService().getUser(by: emailPhoneTextField.text!)
+#else
+        var user = userService.getUser(by: emailPhoneTextField.text!)
+#endif
+       
+       
         if user == nil {
             showAlert("Неверный логин")
         }
