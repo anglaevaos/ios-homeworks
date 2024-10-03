@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B09F4A22CADCCFC00964EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A12CADCCFC00964EE2 /* User.swift */; };
+		8B09F4A42CADD0F000964EE2 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */; };
+		8B09F4A82CADD61900964EE2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A72CADD61900964EE2 /* Users.swift */; };
 		8B30D73D2CA4A0FD0020CF69 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */; };
 		8B30D7432CA4A0FD0020CF69 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30D7392CA4A0FD0020CF69 /* StorageService.framework */; };
 		8B30D74A2CA4A0FD0020CF69 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D7492CA4A0FD0020CF69 /* StorageServiceTests.swift */; };
@@ -75,7 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B09F4A12CADCCFC00964EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		8B09F4A72CADD61900964EE2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		8B30D7392CA4A0FD0020CF69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B30D73B2CA4A0FD0020CF69 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -201,7 +203,8 @@
 				8B3516552C8EEDDA00B5B334 /* PhotosTableViewCell.swift */,
 				8B3516572C8EEFDD00B5B334 /* PhotosViewController.swift */,
 				8B3516592C8EF07E00B5B334 /* PhotosCollectionViewCell.swift */,
-				8B09F4A12CADCCFC00964EE2 /* User.swift */,
+				8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */,
+				8B09F4A72CADD61900964EE2 /* Users.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -374,9 +377,10 @@
 				8B811B832C691AAA00F6E398 /* AppDelegate.swift in Sources */,
 				8B811B9F2C69258E00F6E398 /* InfoViewController.swift in Sources */,
 				8B811B9B2C6921F100F6E398 /* ProfileViewController.swift in Sources */,
-				8B09F4A22CADCCFC00964EE2 /* User.swift in Sources */,
 				8B3516562C8EEDDA00B5B334 /* PhotosTableViewCell.swift in Sources */,
 				8B3516582C8EEFDD00B5B334 /* PhotosViewController.swift in Sources */,
+				8B09F4A42CADD0F000964EE2 /* CurrentUserService.swift in Sources */,
+				8B09F4A82CADD61900964EE2 /* Users.swift in Sources */,
 				8B35165C2C8EF11800B5B334 /* Photo.swift in Sources */,
 				8B782FF12C8765A400999EA9 /* UITableView + Extensions.swift in Sources */,
 				8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */,

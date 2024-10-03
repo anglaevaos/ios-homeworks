@@ -1,9 +1,4 @@
-//
-//  PhotosViewController.swift
-//  Navigation
-//
-//  Created by Oksana Anglaeva on 09.09.2024.
-//
+
 
 import UIKit
 

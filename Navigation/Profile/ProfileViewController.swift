@@ -5,6 +5,8 @@ class ProfileViewController: UIViewController {
     
     private let postVk: [VKPost] = VKPost.makePost()
     
+    public var user: User?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +24,15 @@ class ProfileViewController: UIViewController {
         return profileHeaderView
     }()
     
+    init(user: User? = nil) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -30,13 +41,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        #if DEBUG
-        view.backgroundColor = .cyan
-        #else
-        view.backgroundColor = .systemPink
-        #endif
-//       view.backgroundColor = .systemGray6
+#if DEBUG
+        view.backgroundColor = .systemGray
+#else
+        view.backgroundColor = .systemBlue
+#endif
+        
         setupLayout()
+        
     }
     
     private func setupLayout() {
@@ -58,6 +70,10 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let profileHeader = ProfileHeaderView()
+        profileHeader.profileImageView.image = self.user?.userAvatar
+        profileHeader.titleLabel.text = self.user?.userFullname
+        profileHeader.textView.text = self.user?.userStatus
+        
         return section == 0 ? profileHeader : nil
     }
     

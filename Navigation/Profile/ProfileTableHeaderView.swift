@@ -17,7 +17,6 @@ class ProfileTableHeaderView: UIView {
     private func setupView() {
         backgroundColor = .white
         
-        //titleLabel.text = nil
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         
