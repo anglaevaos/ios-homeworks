@@ -1,16 +1,17 @@
 import UIKit
+import StorageService
 
 
 class PostTableViewCell: UITableViewCell {
     
-    private let postView: UIView = {
+    public let postView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()
     
-    private let authorLabel: UILabel = {
+    public let authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -19,7 +20,7 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let labelDescription: UILabel = {
+    public let labelDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -29,7 +30,7 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let postImage: UIImageView = {
+    public let postImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .black
@@ -38,7 +39,7 @@ class PostTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let labelLike: UILabel = {
+    public let labelLike: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -46,7 +47,7 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let labelView: UILabel = {
+    public let labelView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -64,7 +65,7 @@ class PostTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    public func setupLayout() {
         [postView, authorLabel, labelDescription, postImage, labelLike, labelView].forEach { contentView.addSubview($0) }
         
         let inset: CGFloat = 16
@@ -98,7 +99,7 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
     
-    func setupCell(_ post: VKPost) {
+    public func setupCell(_ post: VKPost) {
         authorLabel.text = post.author
         labelDescription.text = post.description
         labelLike.text = "Like: \(post.like)"
