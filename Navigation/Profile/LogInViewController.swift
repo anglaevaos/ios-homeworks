@@ -3,7 +3,7 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
-    private let notificationCenter = NotificationCenter.default
+    public let notificationCenter = NotificationCenter.default
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -46,7 +46,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private lazy var emailPhoneTextField: UITextField = {
         let emailPhoneTextField = UITextField()
         emailPhoneTextField.translatesAutoresizingMaskIntoConstraints = false
-        //        emailPhoneTextField.indent(size: 10)
         emailPhoneTextField.placeholder = "Email or phone"
         emailPhoneTextField.textColor = .black
         emailPhoneTextField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -175,26 +174,33 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+
+    public let userService = CurrentUserService(currentUser: User(userLogin: "Barbara", userFullname: "Barbie", userStatus: "Hi, Ken!", userAvatar: UIImage(named: "19")))
+    
     @objc private func buttonTappedToProfile() {
-        let profileVC = ProfileViewController()
+        
+#if DEBUG
+        var user = TestUserService().getUser(by: emailPhoneTextField.text!)
+#else
+        var user = userService.getUser(by: emailPhoneTextField.text!)
+#endif
+       
+       
+        if user == nil {
+            showAlert("Неверный логин")
+        }
+        
+        let profileVC = ProfileViewController(user: user)
         navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
+    
+    func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -7,7 +7,7 @@ class ProfileHeaderView: UIView {
     private var statusText: String = ""
     private let defaultStatusText: String = "Enter your status here"
     
-    private let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Аbout Me"
         label.font = .systemFont(ofSize: 18, weight: .bold)
@@ -17,10 +17,10 @@ class ProfileHeaderView: UIView {
         return label
     }()
     
-    private let profileImageView: UIImageView = {
+    public let profileImageView: UIImageView = {
         let customHeightImage = 100
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "tobi")
+        imageView.image = UIImage(named: "")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = CGFloat(customHeightImage/2)
@@ -30,7 +30,7 @@ class ProfileHeaderView: UIView {
         return imageView
     }()
     
-    private let textView: UITextView = {
+    public let textView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor.clear
         textView.textColor = .darkGray
@@ -41,7 +41,7 @@ class ProfileHeaderView: UIView {
         return textView
     }()
     
-    private let nameTextField: UITextField = {
+    public let nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Something about you"
         
