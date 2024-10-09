@@ -10,6 +10,7 @@
 		8B09F4A42CADD0F000964EE2 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */; };
 		8B09F4A82CADD61900964EE2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A72CADD61900964EE2 /* Users.swift */; };
 		8B09F4AA2CAF373A00964EE2 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4A92CAF373A00964EE2 /* TestUserService.swift */; };
+		8B09F4AE2CB6B4E400964EE2 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4AD2CB6B4E400964EE2 /* Checker.swift */; };
 		8B30D73D2CA4A0FD0020CF69 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */; };
 		8B30D7432CA4A0FD0020CF69 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30D7392CA4A0FD0020CF69 /* StorageService.framework */; };
 		8B30D74A2CA4A0FD0020CF69 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D7492CA4A0FD0020CF69 /* StorageServiceTests.swift */; };
@@ -80,6 +81,7 @@
 		8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		8B09F4A72CADD61900964EE2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		8B09F4A92CAF373A00964EE2 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
+		8B09F4AD2CB6B4E400964EE2 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		8B30D7392CA4A0FD0020CF69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B30D73B2CA4A0FD0020CF69 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				8B09F4A32CADD0F000964EE2 /* CurrentUserService.swift */,
 				8B09F4A72CADD61900964EE2 /* Users.swift */,
 				8B09F4A92CAF373A00964EE2 /* TestUserService.swift */,
+				8B09F4AD2CB6B4E400964EE2 /* Checker.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B811B9D2C69255F00F6E398 /* PostViewController.swift in Sources */,
+				8B09F4AE2CB6B4E400964EE2 /* Checker.swift in Sources */,
 				8BAF71372C7E348400648AEC /* ProfileTableHeaderView.swift in Sources */,
 				8B811B872C691AAA00F6E398 /* ViewController.swift in Sources */,
 				8BAC3A222C77A5FB00502E12 /* LogInViewController.swift in Sources */,

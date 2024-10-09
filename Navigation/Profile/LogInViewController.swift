@@ -180,9 +180,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @objc private func buttonTappedToProfile() {
         
 #if DEBUG
-        var user = TestUserService().getUser(by: emailPhoneTextField.text!)
+        let user = TestUserService().getUser(by: emailPhoneTextField.text!)
 #else
-        var user = userService.getUser(by: emailPhoneTextField.text!)
+        let user = userService.getUser(by: emailPhoneTextField.text!)
 #endif
        
        
@@ -194,6 +194,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(profileVC, animated: true)
         
     }
+    
+//    if let user = service.getUser(login: loginField.text ?? "") {
+//                let profileVC = ProfileViewController(user: user)
+//                navigationController?.setViewControllers([profileVC], animated: true)
+//            } else {
+//                let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//                self.present(alert, animated: true)
+//            }
+//        }
     
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)

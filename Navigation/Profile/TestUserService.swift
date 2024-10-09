@@ -8,6 +8,7 @@
 import UIKit
 
 class TestUserService: UserService {
+
     public var testUser = User(userLogin: "test", userFullname: "test", userStatus: "test", userAvatar: UIImage(named: "18"))
     
     func getUser(by login: String) -> User? {
