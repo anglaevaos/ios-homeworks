@@ -5,8 +5,8 @@ class Checker {
 
     static let shared = Checker()
     
-    private let myLogin: String = "Madara"
-    private let myPassword: String = "Uchiha"
+    private let myLogin: String = "mylogin"
+    private let myPassword: String = "mypassword"
     
     private init() {
         

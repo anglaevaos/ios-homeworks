@@ -2,6 +2,8 @@
 import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
+    //2 создаем делегат
+    weak var loginDelegate: LoginViewControllerDelegate?
     
     public let notificationCenter = NotificationCenter.default
     
@@ -193,18 +195,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let profileVC = ProfileViewController(user: user)
         navigationController?.pushViewController(profileVC, animated: true)
         
+        
+        //3 вызывваем делегат
+        
+        if let delegate = loginDelegate {
+            let isValid = delegate.check(login: "mylogin", password: "mypassword")
+
+        }
+        
     }
     
-//    if let user = service.getUser(login: loginField.text ?? "") {
-//                let profileVC = ProfileViewController(user: user)
-//                navigationController?.setViewControllers([profileVC], animated: true)
-//            } else {
-//                let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-//                self.present(alert, animated: true)
-//            }
-//        }
-    
+  
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
