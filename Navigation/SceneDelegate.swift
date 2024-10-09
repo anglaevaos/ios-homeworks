@@ -21,6 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         
+        //устанавливаем делегат
+        
+        let loginViewController = LogInViewController()
+        let loginInspector = LoginInspector()
+        
+        loginViewController.loginDelegate = loginInspector
+        window.rootViewController = loginViewController
         
         tabBarController.selectedIndex = 0
         window.rootViewController = tabBarController
