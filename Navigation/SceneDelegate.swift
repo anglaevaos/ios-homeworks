@@ -4,6 +4,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    let loginFactory: LoginFactory = defaultLoginFactory()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -21,6 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         
+        //устанавливаем делегат
+        
+        let loginViewController = LogInViewController()
+        let loginInspector = loginFactory.makeLoginInspector()
+        
+        loginViewController.loginDelegate = loginInspector
+        window.rootViewController = loginViewController
         
         tabBarController.selectedIndex = 0
         window.rootViewController = tabBarController
