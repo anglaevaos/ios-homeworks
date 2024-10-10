@@ -200,11 +200,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let profileVC = ProfileViewController(user: user)
         navigationController?.pushViewController(profileVC, animated: true)
         
-        var loginInspector = LoginInspector()
+        let loginInspector = LoginInspector()
         
         //3 вызывваем делегат
         
-        var result = loginInspector.check(login: "mylogin", password: "mypassword")
+        let result = loginInspector.check(login: "mylogin", password: "mypassword")
         print(result)
         self.loginDelegate = loginInspector
         
