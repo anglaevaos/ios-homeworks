@@ -13,6 +13,7 @@
 		8B09F4AE2CB6B4E400964EE2 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4AD2CB6B4E400964EE2 /* Checker.swift */; };
 		8B09F4B02CB6BB3800964EE2 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4AF2CB6BB3800964EE2 /* LoginViewControllerDelegate.swift */; };
 		8B09F4B22CB6CD8300964EE2 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4B12CB6CD8300964EE2 /* LoginInspector.swift */; };
+		8B09F4B42CB82D1C00964EE2 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09F4B32CB82D1C00964EE2 /* LoginFactory.swift */; };
 		8B30D73D2CA4A0FD0020CF69 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */; };
 		8B30D7432CA4A0FD0020CF69 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30D7392CA4A0FD0020CF69 /* StorageService.framework */; };
 		8B30D74A2CA4A0FD0020CF69 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30D7492CA4A0FD0020CF69 /* StorageServiceTests.swift */; };
@@ -86,6 +87,7 @@
 		8B09F4AD2CB6B4E400964EE2 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		8B09F4AF2CB6BB3800964EE2 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8B09F4B12CB6CD8300964EE2 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		8B09F4B32CB82D1C00964EE2 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		8B30D7392CA4A0FD0020CF69 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B30D73B2CA4A0FD0020CF69 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		8B30D73C2CA4A0FD0020CF69 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				8B09F4AD2CB6B4E400964EE2 /* Checker.swift */,
 				8B09F4AF2CB6BB3800964EE2 /* LoginViewControllerDelegate.swift */,
 				8B09F4B12CB6CD8300964EE2 /* LoginInspector.swift */,
+				8B09F4B32CB82D1C00964EE2 /* LoginFactory.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				8B09F4AA2CAF373A00964EE2 /* TestUserService.swift in Sources */,
 				8B35165C2C8EF11800B5B334 /* Photo.swift in Sources */,
 				8B782FF12C8765A400999EA9 /* UITableView + Extensions.swift in Sources */,
+				8B09F4B42CB82D1C00964EE2 /* LoginFactory.swift in Sources */,
 				8B811B992C6921D700F6E398 /* FeedViewController.swift in Sources */,
 				8B09F4B22CB6CD8300964EE2 /* LoginInspector.swift in Sources */,
 				8B811B852C691AAA00F6E398 /* SceneDelegate.swift in Sources */,

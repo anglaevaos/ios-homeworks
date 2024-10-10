@@ -1,6 +1,7 @@
 import UIKit
 import StorageService
 
+
 class ProfileViewController: UIViewController {
     
     private let postVk: [VKPost] = VKPost.makePost()
@@ -41,12 +42,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-#if DEBUG
-        view.backgroundColor = .systemGray
-#else
-        view.backgroundColor = .systemBlue
-#endif
-        
+//#if DEBUG
+//        view.backgroundColor = .systemGray
+//#else
+//        view.backgroundColor = .systemBlue
+//#endif
+//        
         setupLayout()
         
     }
@@ -113,7 +114,15 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension UIView {
     static var identifier: String {
+    
         return String(describing: self)
     }
 }
 
+
+extension ProfileViewController: LoginViewControllerDelegate {
+    func check(login: String, password: String) -> Bool {
+        return Checker.shared.check(login: "mylogin", password: "mypassword")
+    }
+   
+}

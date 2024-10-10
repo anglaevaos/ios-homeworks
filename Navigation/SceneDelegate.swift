@@ -4,6 +4,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    let loginFactory: LoginFactory = defaultLoginFactory()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -24,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //устанавливаем делегат
         
         let loginViewController = LogInViewController()
-        let loginInspector = LoginInspector()
+        let loginInspector = loginFactory.makeLoginInspector()
         
         loginViewController.loginDelegate = loginInspector
         window.rootViewController = loginViewController

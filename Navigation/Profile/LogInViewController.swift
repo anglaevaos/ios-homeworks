@@ -1,8 +1,11 @@
 
 import UIKit
 
+
 class LogInViewController: UIViewController, UITextFieldDelegate {
-    //2 создаем делегат
+    
+    
+    //2 создаем делегат logininspector
     weak var loginDelegate: LoginViewControllerDelegate?
     
     public let notificationCenter = NotificationCenter.default
@@ -176,18 +179,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-
+    
     public let userService = CurrentUserService(currentUser: User(userLogin: "Barbara", userFullname: "Barbie", userStatus: "Hi, Ken!", userAvatar: UIImage(named: "19")))
     
+    
+    
     @objc private func buttonTappedToProfile() {
+        
         
 #if DEBUG
         let user = TestUserService().getUser(by: emailPhoneTextField.text!)
 #else
         let user = userService.getUser(by: emailPhoneTextField.text!)
 #endif
-       
-       
+        
         if user == nil {
             showAlert("Неверный логин")
         }
@@ -195,23 +200,33 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let profileVC = ProfileViewController(user: user)
         navigationController?.pushViewController(profileVC, animated: true)
         
+        var loginInspector = LoginInspector()
         
         //3 вызывваем делегат
         
-        if let delegate = loginDelegate {
+        var result = loginInspector.check(login: "mylogin", password: "mypassword")
+        print(result)
+        self.loginDelegate = loginInspector
+        
+        
+        
+        if let delegate = self.loginDelegate {
             let isValid = delegate.check(login: "mylogin", password: "mypassword")
-
+            if isValid {
+                print("Login successful!")
+            } else {
+                showAlert("Invalid username or password.")
+            }
+            
         }
         
     }
     
-  
+    
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
+        
 }
-
-
