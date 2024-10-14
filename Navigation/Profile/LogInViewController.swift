@@ -1,7 +1,12 @@
 
 import UIKit
 
+
 class LogInViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    //2 создаем делегат logininspector
+    weak var loginDelegate: LoginViewControllerDelegate?
     
     public let notificationCenter = NotificationCenter.default
     
@@ -174,18 +179,23 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-
+    
     public let userService = CurrentUserService(currentUser: User(userLogin: "Barbara", userFullname: "Barbie", userStatus: "Hi, Ken!", userAvatar: UIImage(named: "19")))
+    
+    
     
     @objc private func buttonTappedToProfile() {
         
+        
 #if DEBUG
-        var user = TestUserService().getUser(by: emailPhoneTextField.text!)
+        let user = TestUserService().getUser(by: emailPhoneTextField.text!)
 #else
-        var user = userService.getUser(by: emailPhoneTextField.text!)
+        let user = userService.getUser(by: emailPhoneTextField.text!)
 #endif
-       
-       
+        if ((loginDelegate?.check(login: <#T##String#>, password: <#T##String#>)) != nil){
+            let user = userService.getUser(by: emailPhoneTextField.text!)
+        }
+        
         if user == nil {
             showAlert("Неверный логин")
         }
@@ -193,14 +203,31 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let profileVC = ProfileViewController(user: user)
         navigationController?.pushViewController(profileVC, animated: true)
         
+        let loginInspector = LoginInspector()
+        
+        let result = loginInspector.check(login: "mylogin", password: "mypassword")
+        print(result)
+        self.loginDelegate = loginInspector
+        
+        
+        
+        if let delegate = self.loginDelegate {
+            let isValid = delegate.check(login: "mylogin", password: "mypassword")
+            if isValid {
+                print("Login successful!")
+            } else {
+                showAlert("Invalid username or password.")
+            }
+            
+        }
+        
     }
+    
     
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
+        
 }
-
-

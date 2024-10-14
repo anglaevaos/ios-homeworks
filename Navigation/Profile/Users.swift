@@ -26,8 +26,8 @@ class User {
         }
     }
 
-    protocol UserService {
+protocol UserService {
+        //var user: User { get set }
         func getUser (by login: String) -> User?
-
 }
 
