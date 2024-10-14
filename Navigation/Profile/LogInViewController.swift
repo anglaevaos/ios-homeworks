@@ -192,6 +192,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 #else
         let user = userService.getUser(by: emailPhoneTextField.text!)
 #endif
+        if ((loginDelegate?.check(login: <#T##String#>, password: <#T##String#>)) != nil){
+            let user = userService.getUser(by: emailPhoneTextField.text!)
+        }
         
         if user == nil {
             showAlert("Неверный логин")
@@ -201,8 +204,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(profileVC, animated: true)
         
         let loginInspector = LoginInspector()
-        
-        //3 вызывваем делегат
         
         let result = loginInspector.check(login: "mylogin", password: "mypassword")
         print(result)
